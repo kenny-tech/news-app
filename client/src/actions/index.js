@@ -27,7 +27,7 @@ export const signinUser = ({ email, password }) => {
                 localStorage.setItem('token', response.data.token);
 
                 // - redirect to the route '/feature'
-                History.push('/feature');
+                History.push('/news');
             }).catch(() => {
                 // if request is bad...
                 // - show an error to the user
@@ -43,7 +43,7 @@ export const signupUser = ({ email, password }) => {
             .then(response => {
                 dispatch({ type: AUTH_USER });
                 localStorage.setItem('token', response.data.token);
-                History.push('/feature');
+                History.push('/news');
             })
             .catch(err => {
                 dispatch(authError(err.response.data.error));

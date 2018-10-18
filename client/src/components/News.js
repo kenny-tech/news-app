@@ -30,7 +30,7 @@ class News extends Component {
 
         return (
             <div>
-                <h4>News</h4>
+                <h1 align="center">News</h1>
                 <ul>
                     {this.renderFeature()}
                 </ul>
