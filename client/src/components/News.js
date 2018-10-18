@@ -11,7 +11,15 @@ class News extends Component {
 
     renderFeature() {
         return this.props.news.map(newsItem => {
-            return <li key={newsItem.title}>{newsItem.title}</li>;
+            return (
+                <div class="card">
+                    <img class="card-img-top" src={newsItem.urlToImage} alt={newsItem.title} style={{ width: '100%' }} />
+                    <div class="card-body">
+                    <h4 class="card-title">{newsItem.title}</h4>
+                    <p class="card-text">{newsItem.content}</p>
+                    </div>
+                </div>
+            )
         })
     }
 
