@@ -5,7 +5,7 @@ import RequireAuth from '../components/auth/Require_auth';
 import Signin from '../components/auth/Signin';
 import Signout from '../components/auth/Signout';
 import Signup from '../components/auth/Signup';
-import Feature from '../components/Feature';
+import News from '../components/News';
 import Welcome from '../components/Welcome';
 
 const Routes = () => {
@@ -15,7 +15,7 @@ const Routes = () => {
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signout" component={Signout} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/feature" component={RequireAuth(Feature)} />
+            <Route exact path="/feature" component={RequireAuth(News)} />
         </App>
     );
 };

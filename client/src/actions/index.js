@@ -5,10 +5,13 @@ import {
     AUTH_USER,
     UNAUTH_USER,
     AUTH_ERROR,
-    FETCH_FEATURE
+    FETCH_NEWS_ITEMS
 } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
+const NEWS_ITEMS = 'https://newsapi.org/v2/top-headlines?' +
+          'country=us&' +
+          'apiKey=20ef60a323ed45269c4bc228c6d75956';
 
 export const signinUser = ({ email, password }) => {
     return (dispatch) => {
@@ -60,15 +63,16 @@ export const signoutUser = () => {
     return { type: UNAUTH_USER };
 };
 
-export const fetchFeature = () => {
+export const fetchNews = () => {
     return (dispatch) => {
-        axios.get(ROOT_URL, {
+        axios.get(NEWS_ITEMS, {
             headers: { authorization: localStorage.getItem('token') }
         })
         .then(response => {
+            console.log(response);
             dispatch({
-                type: FETCH_FEATURE,
-                payload: response.data
+                type: FETCH_NEWS_ITEMS,
+                payload: response.data.articles
              });
         });
     };

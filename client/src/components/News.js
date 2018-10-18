@@ -3,26 +3,26 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 
-class Feature extends Component {
+class News extends Component {
 
     componentWillMount() {
-        this.props.fetchFeature();
+        this.props.fetchNews();
     }
 
     renderFeature() {
-        return this.props.features.map(feature => {
-            return <li key={feature}>{feature}</li>;
+        return this.props.news.map(newsItem => {
+            return <li key={newsItem.title}>{newsItem.title}</li>;
         })
     }
 
     render() {
-        if (!this.props.features) {
+        if (!this.props.news) {
             return <div>Loading...</div>;
         }
 
         return (
             <div>
-                <h4>Feature</h4><small>You must be logged in to see the features</small>
+                <h4>News</h4>
                 <ul>
                     {this.renderFeature()}
                 </ul>
@@ -32,7 +32,7 @@ class Feature extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return { features: state.features.homePageFeatures }
+    return { news: state.news.newsItems }
 }
 
-export default connect(mapStateToProps, actions)(Feature);
+export default connect(mapStateToProps, actions)(News);
