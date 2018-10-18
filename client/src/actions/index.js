@@ -69,7 +69,6 @@ export const fetchNews = () => {
             headers: { authorization: localStorage.getItem('token') }
         })
         .then(response => {
-            console.log(response);
             dispatch({
                 type: FETCH_NEWS_ITEMS,
                 payload: response.data.articles
