@@ -17,6 +17,7 @@ class News extends Component {
                     <div class="card-body">
                     <h4 class="card-title">{newsItem.title}</h4>
                     <p class="card-text">{newsItem.content}</p>
+                    <p align="center"><a href={newsItem.url} target="_blank">Read More</a></p>
                     </div>
                 </div>
             )
