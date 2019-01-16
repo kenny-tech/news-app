@@ -8,8 +8,11 @@ const cors = require('cors');
 const app = express();
 const router = require('./router');
 
+// db config
+const db = require('./config/database');
+
 // db setup
-mongoose.connect('mongodb://localhost:27017/auth', {
+mongoose.connect(db.mongoURI, {
     useMongoClient: true,
 });
 
